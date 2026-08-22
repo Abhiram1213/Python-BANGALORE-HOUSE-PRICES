@@ -1,164 +1,91 @@
-# 🏡 Bangalore Real Estate Price Prediction & Market Valuation
+# 🏙️ Bangalore House Prices — Advanced Machine Learning & Power BI Master Analytics Suite
 
-[![Python](https://img.shields.io/badge/Python-3.9%20%7C%203.10%20%7C%203.11-blue.svg)](https://www.python.org/)
-[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)](https://jupyter.org/)
-[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.3%2B-F7931E.svg)](https://scikit-learn.org/)
-[![PowerBI](https://img.shields.io/badge/Power%20BI-Dashboard%20Included-yellow.svg)]()
-[![Status](https://img.shields.io/badge/Status-Completed-brightgreen.svg)]()
-
-> **An end-to-end econometric and machine learning valuation pipeline diagnosing spatial real estate pricing patterns across Bangalore, removing domain outliers, benchmarking multiple regression models with 5-Fold Cross-Validation, and providing real-time property valuation.**
+An end-to-end residential real estate intelligence system and machine learning valuation pipeline built on **7,269 verified listings across 241 Bangalore micro-markets**, featuring an executive **3-page Power BI Dashboard**, an **interactive HTML web suite**, and **regularized ML valuation models ($R^2 = 82.54\%$)**.
 
 ---
 
-## 📌 1. Project Background & Business Context
+## 📑 Project Ecosystem & Deliverables
 
-Bangalore (Bengaluru) is one of the most dynamic real estate markets in Asia. Driven by massive IT corridors and rapid urban expansion, residential property prices exhibit extreme variance based on:
-- **Location Premiums**: Central heritage hubs (Indiranagar, Rajaji Nagar, Malleshwaram) vs. outer tech corridors (Whitefield, Electronic City, Sarjapur Road).
-- **Structural Configurations**: Total square footage, bedroom count (BHK), bathroom-to-room ratio, and construction area type (Super built-up vs. Plot vs. Carpet area).
-- **Data Inconsistencies & Speculative Spikes**: Non-standard square footage text entries, speculative listing spikes, and data entry errors.
-
-This project delivers:
-1. **Robust Data Preprocessing**: Parsing textual square footage ranges, cleaning missing values, and engineering `bhk`, `total_sqft`, and `price_per_sqft`.
-2. **Domain-Driven Outlier Removal**: Statistical filters eliminating unrealistic space-per-room entries ($< 300\text{ sq ft/BHK}$), location price spikes ($\mu \pm 1\sigma$), BHK price inversions, and bathroom count anomalies.
-3. **Machine Learning Benchmarking**: Comparing 6 regression algorithms across **5-Fold Cross-Validation** to select the champion valuation model.
-4. **Interactive Valuation Function**: Real-time property appraisal function `predict_price(location, sqft, bath, bhk)`.
+| Asset | File / Path | Key Capabilities |
+|---|---|---|
+| **📊 Power BI Master Suite** | [`Bangalore_Advanced_Dashboard.pbix`](file:///c:/Users/abhir/Downloads/git%20ptojects/Python-BANGALORE-HOUSE-PRICES/Bangalore_Advanced_Dashboard.pbix) | 3 Pages, 26 Visuals, Dark Navy Executive Theme (`#0B1929`), Dual-Axis Combo Charts, Floor Area Curves, Micro-market Treemaps |
+| **🌐 Interactive Web Dashboard** | [`dashboard.html`](file:///c:/Users/abhir/Downloads/git%20ptojects/Python-BANGALORE-HOUSE-PRICES/dashboard.html) | Chart.js 4.4 Engine, 9 Interactive Charts, 5 Sparkline KPIs, Dynamic Locality Matrix, Real-time Filters |
+| **📄 Master Analytics Report (PDF)** | [`Bangalore_Real_Estate_Master_Analytics_Report.pdf`](file:///c:/Users/abhir/Downloads/git%20ptojects/Python-BANGALORE-HOUSE-PRICES/Bangalore_Real_Estate_Master_Analytics_Report.pdf) | Publication-grade executive report with data tables, econometric pricing models, and corridor benchmarks |
+| **📋 Exhaustive Technical Report** | [`PROJECT_REPORT.md`](file:///c:/Users/abhir/Downloads/git%20ptojects/Python-BANGALORE-HOUSE-PRICES/PROJECT_REPORT.md) | Full mathematical formulations, OLS/Ridge/Lasso benchmarks, feature breakdowns, and distribution stats |
+| **📁 Cleaned Dataset** | [`final_cleaned_data.csv`](file:///c:/Users/abhir/Downloads/git%20ptojects/Python-BANGALORE-HOUSE-PRICES/final_cleaned_data.csv) | 7,269 records, 11 columns, 0 nulls, 4-stage domain-specific outlier filtering |
+| **📓 Machine Learning Notebook** | [`Bangalore House Prices.ipynb`](file:///c:/Users/abhir/Downloads/git%20ptojects/Python-BANGALORE-HOUSE-PRICES/Bangalore%20House%20Prices.ipynb) | End-to-end exploratory analysis, feature engineering, and model benchmarking |
 
 ---
 
-## 🛡️ 2. Domain & Statistical Outlier Removal Pipeline
-
-Raw real estate listings contain severe anomalies that distort linear and ensemble algorithms. We apply a 4-stage cleaning funnel:
+## 🏛️ Power BI Dashboard Architecture (3 Pages • 26 Visuals)
 
 ```
-                            OUTLIER FILTERING FUNNEL
-┌───────────────────────────────────────┬─────────────────────────────────────────────────────────────┐
-│ Filtering Stage                       │ Rationale & Business Rule                                   │
-├───────────────────────────────────────┼─────────────────────────────────────────────────────────────┤
-│ 1. Minimum Area per Bedroom           │ Exclude properties with < 300 sq ft per BHK (unrealistic).  │
-│ 2. Location-Wise Price Distribution   │ Filter listings outside μ ± 1σ price/sqft per locality.     │
-│ 3. BHK Pricing Inversion              │ Eliminate 2 BHKs priced higher than 3 BHKs of similar sqft. │
-│ 4. Bathroom-to-Room Ratio             │ Remove listings where Bathrooms > BHK + 2.                  │
-└───────────────────────────────────────┴─────────────────────────────────────────────────────────────┘
+Bangalore_Advanced_Dashboard.pbix
+│
+├── 📑 Page 1: "1. Market Overview & KPIs" (14 Visuals)
+│    ├── 5 Executive KPI Cards (Listings, Avg Price, Unit Rate, Floor Area, Bath Ratio)
+│    ├── 2 Interactive Slicers (Locality Filter & BHK Filter)
+│    ├── Dual-Axis Combo Chart: Avg Price (Bars) & Rate/Sqft (Line) by BHK
+│    ├── Living Floor Area Expansion Curve (Area Chart)
+│    ├── Area Type Composition % by BHK (100% Stacked Bar)
+│    ├── Top 15 High-Valuation Localities (Ranked Horizontal Bar)
+│    ├── Market Inventory Density across Localities (Treemap)
+│    └── Area Type Market Share (Donut Chart)
+│
+├── 📑 Page 2: "2. Micro-Market & Price Analytics" (6 Visuals)
+│    ├── Price Elasticity Scatter Plot (Price vs Total Sqft by Locality)
+│    ├── Total Capital Volume by Area Type (Treemap)
+│    ├── Full Locality Intelligence Data Table (Searchable & Sortable Matrix)
+│    ├── BHK Inventory & Demand Funnel (Funnel Chart)
+│    └── Area Type × BHK Valuation Multi-Dimensional Stacked Bar
+│
+└── 📑 Page 3: "3. Feature Valuations & Amenities" (6 Visuals)
+     ├── Balcony Count vs Average Price Impact (Column Chart)
+     ├── Unit Rate Premium Curve by Bathroom Count (₹/Sqft Area Curve)
+     ├── Bathroom Count Market Share Distribution (Donut Chart)
+     ├── Clustered Matrix: Avg Price by BHK & Balcony Tier (Clustered Column)
+     └── High-Density Localities: Supply Volume (Bars) vs Unit Rate (Line) (Dual-Axis Combo)
 ```
 
 ---
 
-## 📈 3. Machine Learning Model Benchmarks
+## 📈 Key Market Benchmarks
 
-All models were evaluated using **5-Fold ShuffleSplit Cross-Validation** on the training split (80%) and tested on an independent holdout set (20% = 1,448 properties).
+- **Market Capitalization**: **₹7,039.17 Crores** (₹703,916.93 Lakhs)
+- **Mean Property Price**: **₹96.84 Lakhs** (Median: **₹72.54 Lakhs**, IQR: ₹50.00L – ₹110.00L)
+- **Mean Unit Rate**: **₹6,101.92 / sqft** (Median: **₹5,666.67 / sqft**)
+- **Dominant Configurations**: **2 BHK (49.95%)** + **3 BHK (33.99%)** = **83.94%** total market share
+- **Structural Premium**: Gated Plot Villas command **₹8,171.35/sqft** (+39.0% unit rate premium over Super built-up apartments)
+- **Top Supply Epicenters**: Whitefield (244 listings), Sarjapur Road (190), Electronic City (162)
+- **Top Ultra-Luxury Hubs**: Cunningham Road (Avg ₹744.56L), Giri Nagar (₹402.43L), Benson Town (₹320.00L)
 
-| Regression Algorithm | 5-Fold CV $R^2$ Score | Holdout Test $R^2$ | RMSE (Lakhs INR) | MAE (Lakhs INR) |
+---
+
+## 🤖 Machine Learning Model Benchmarks
+
+$$\hat{Y}_{\text{price}} = \beta_0 + \beta_1(\text{total\_sqft}) + \beta_2(\text{bath}) + \beta_3(\text{balcony}) + \beta_4(\text{bhk}) + \sum_{j=1}^{K} \gamma_j (\text{Locality}_j) + \sum_{m=1}^{M} \delta_m (\text{AreaType}_m)$$
+
+| Algorithm | R² Score (%) | RMSE (₹ Lakhs) | MAE (₹ Lakhs) | Status |
 |:---|:---:|:---:|:---:|:---:|
-| **Decision Tree Regressor** | 0.7296 | 0.6770 | 54.78 Lakhs | 19.88 Lakhs |
-| **Random Forest Regressor** (100 Trees) | 0.7915 | 0.7088 | 52.01 Lakhs | 17.30 Lakhs |
-| **Lasso Regression** ($\alpha=0.1$) | 0.8038 | 0.7792 | 45.29 Lakhs | 19.95 Lakhs |
-| **Gradient Boosting Regressor** | 0.8258 | 0.7427 | 48.89 Lakhs | **16.16 Lakhs** |
-| **Linear Regression** (OLS) | 0.8441 | 0.7984 | 43.28 Lakhs | 17.84 Lakhs |
-| **Ridge Regression** ($\alpha=1.0$ - Champion) | **0.8401** | **0.8003** | **43.08 Lakhs** | **17.83 Lakhs** |
-
-### 🏆 Champion Model Highlights (Ridge Regression)
-- **Holdout Test $R^2$ Score**: `0.8003` (explains 80% of price variance across 240+ localities)
-- **Root Mean Squared Error (RMSE)**: `43.08 Lakhs INR`
-- **Mean Absolute Error (MAE)**: `17.83 Lakhs INR`
+| **Linear Regression (OLS)** | **82.71%** | **₹46.85 L** | **₹18.60 L** | Baseline |
+| **Ridge Regression ($L_2$)** | **82.54%** | **₹47.07 L** | **₹18.56 L** | **Champion Model** |
+| **Lasso Regression ($L_1$)** | 81.24% | ₹48.80 L | ₹20.34 L | Strong |
+| **Random Forest Regressor** | 67.82% | ₹63.91 L | ₹16.78 L | Non-linear tree ensemble |
+| **Gradient Boosting Regressor** | 66.48% | ₹65.23 L | ₹19.49 L | Boosted trees |
 
 ---
 
-## 💡 4. Real-Time Property Valuation Function
+## 🚀 How to Run
 
-The notebook implements an interactive valuation engine:
+### 1. View Power BI Dashboard
+Open [`Bangalore_Advanced_Dashboard.pbix`](file:///c:/Users/abhir/Downloads/git%20ptojects/Python-BANGALORE-HOUSE-PRICES/Bangalore_Advanced_Dashboard.pbix) in **Power BI Desktop** and navigate between all 3 tabs at the bottom.
 
-```python
-def predict_price(location, sqft, bath, bhk):
-    # Evaluates one-hot encoded locality + dimensions
-    ...
-```
-
-### Sample Real-World Valuation Outputs:
-* 📍 **1st Phase JP Nagar** | 2 BHK | 1,000 sq ft | 2 Bath $\rightarrow$ **₹84.12 Lakhs**
-* 📍 **1st Phase JP Nagar** | 3 BHK | 1,000 sq ft | 3 Bath $\rightarrow$ **₹86.25 Lakhs**
-* 📍 **Indira Nagar** | 2 BHK | 1,000 sq ft | 2 Bath $\rightarrow$ **₹181.28 Lakhs**
-* 📍 **Indira Nagar** | 3 BHK | 1,000 sq ft | 3 Bath $\rightarrow$ **₹183.40 Lakhs**
-* 📍 **Whitefield** | 2 BHK | 1,200 sq ft | 2 Bath $\rightarrow$ **₹68.50 Lakhs**
-* 📍 **Electronic City Phase II** | 2 BHK | 1,000 sq ft | 2 Bath $\rightarrow$ **₹51.24 Lakhs**
-
----
-
-## 💼 5. Real Estate Investment Playbook
-
-| Strategic Dimension | Market Finding | Actionable Recommendation |
-|:---|:---|:---|
-| **Local Premium Spread** | Prime heritage areas (Indiranagar, Rajaji Nagar) command 3× higher price per sq ft than peripheral tech corridors. | Focus on central zones for long-term capital preservation; target peripheral growth corridors (Sarjapur, Electronic City) for higher rental yield. |
-| **Liquidity Configuration** | Standard 2 BHK and 3 BHK units between 1,000–1,500 sq ft drive over 70% of transaction velocity. | Developers should prioritize standard rectangular floorplans over non-standard layouts. |
-| **Price per Sqft Variance** | Statistical filtering eliminated over 40% noise from speculative listings and construction variance. | Real estate portals should integrate automated $\mu \pm 1\sigma$ price filters to protect retail buyers from speculative listing spikes. |
-
----
-
----
-
-## 📊 6. Power BI Interactive Dashboard Report (`powerbi report.pbix`)
-
-The repository includes an interactive Power BI report connected directly to the cleaned dataset (`pre_processed_data.csv` / `final_cleaned_data.csv`):
-
-```
-┌─────────────────────────────────────────────────────────────────────────────────────────────┐
-│                           POWER BI DASHBOARD VISUAL ARCHITECTURE                            │
-├────────────────────┬─────────────────────────────┬──────────────────────────────────────────┤
-│ Component          │ Visual Type                 │ Key Metrics & Functionality              │
-├────────────────────┼─────────────────────────────┼──────────────────────────────────────────┤
-│ 1. Location Slicer │ Interactive Slicer Dropdown │ Filter entire dashboard by 241 Localities│
-│ 2. BHK Slicer      │ Multi-Select Slicer Tile    │ Segment properties by 1, 2, 3, 4, 5+ BHK │
-│ 3. Spatial Volume  │ Clustered Column Chart      │ Total Property Availability by Location  │
-│ 4. Configuration $ │ Column Chart                │ Average & Maximum Price by BHK           │
-│ 5. Location Price  │ Clustered Column Chart      │ Average Listing Price across Localities  │
-│ 6. Unit Absorption │ Horizontal Bar Chart        │ Availability Volume by Bedroom Count     │
-│ 7. Unit Economics  │ Column Chart                │ Average Price per Sqft by BHK            │
-└────────────────────┴─────────────────────────────┴──────────────────────────────────────────┘
-```
-
----
-
-## 📁 7. Repository Layout
-
-```
-Python-BANGALORE-HOUSE-PRICES/
-├── Bangalore House Prices.ipynb              # Complete, executed, and documented Jupyter Notebook
-├── Bangalore_House_Prices_Valuation_Report.pdf # High-depth PDF technical valuation report
-├── PROJECT_REPORT.md                         # Detailed markdown project report
-├── bengaluru_house_prices.csv                # Raw dataset (13,320 properties × 9 columns)
-├── pre_processed_data.csv                    # Cleaned pre-processed dataset (0 nulls, 7,269 rows)
-├── final_cleaned_data.csv                    # Cleaned dataset for Power BI data refresh
-├── powerbi report.pbix                       # Interactive Power BI dashboard report
-├── requirements.txt                          # Environment dependencies
-└── README.md                                 # Human-written technical project documentation
-```
-
----
-
-## 🚀 7. Quickstart & How to Run
-
-### Prerequisites
-- Python 3.9+ installed
-- Jupyter Notebook or VS Code with Jupyter extension
-
-### Setup
+### 2. View Interactive Web Dashboard
 ```bash
-# 1. Clone the repository
-git clone https://github.com/Abhiram1213/Python-BANGALORE-HOUSE-PRICES.git
-cd Python-BANGALORE-HOUSE-PRICES
-
-# 2. (Optional) Create and activate a virtual environment
-python -m venv venv
-# On Windows:
-venv\Scripts\activate
-# On Linux/macOS:
-source venv/bin/activate
-
-# 3. Install required dependencies
-pip install -r requirements.txt
+python -m http.server 8080
+# Open http://localhost:8080/dashboard.html
 ```
 
-### Run the Notebook
-Launch Jupyter Notebook to inspect plots and run the live prediction engine:
-```bash
-jupyter notebook "Bangalore House Prices.ipynb"
-```
+### 3. Review Master Reports
+- Markdown: [`PROJECT_REPORT.md`](file:///c:/Users/abhir/Downloads/git%20ptojects/Python-BANGALORE-HOUSE-PRICES/PROJECT_REPORT.md)
+- PDF: [`Bangalore_Real_Estate_Master_Analytics_Report.pdf`](file:///c:/Users/abhir/Downloads/git%20ptojects/Python-BANGALORE-HOUSE-PRICES/Bangalore_Real_Estate_Master_Analytics_Report.pdf)
