@@ -93,16 +93,43 @@ def predict_price(location, sqft, bath, bhk):
 
 ---
 
-## 📁 6. Repository Layout
+---
+
+## 📊 6. Power BI Interactive Dashboard Report (`powerbi report.pbix`)
+
+The repository includes an interactive Power BI report connected directly to the cleaned dataset (`pre_processed_data.csv` / `final_cleaned_data.csv`):
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────────────────┐
+│                           POWER BI DASHBOARD VISUAL ARCHITECTURE                            │
+├────────────────────┬─────────────────────────────┬──────────────────────────────────────────┤
+│ Component          │ Visual Type                 │ Key Metrics & Functionality              │
+├────────────────────┼─────────────────────────────┼──────────────────────────────────────────┤
+│ 1. Location Slicer │ Interactive Slicer Dropdown │ Filter entire dashboard by 241 Localities│
+│ 2. BHK Slicer      │ Multi-Select Slicer Tile    │ Segment properties by 1, 2, 3, 4, 5+ BHK │
+│ 3. Spatial Volume  │ Clustered Column Chart      │ Total Property Availability by Location  │
+│ 4. Configuration $ │ Column Chart                │ Average & Maximum Price by BHK           │
+│ 5. Location Price  │ Clustered Column Chart      │ Average Listing Price across Localities  │
+│ 6. Unit Absorption │ Horizontal Bar Chart        │ Availability Volume by Bedroom Count     │
+│ 7. Unit Economics  │ Column Chart                │ Average Price per Sqft by BHK            │
+└────────────────────┴─────────────────────────────┴──────────────────────────────────────────┘
+```
+
+---
+
+## 📁 7. Repository Layout
 
 ```
 Python-BANGALORE-HOUSE-PRICES/
-├── Bangalore House Prices.ipynb   # Complete, executed, and documented Jupyter Notebook
-├── bengaluru_house_prices.csv     # Raw dataset (13,320 properties × 9 columns)
-├── pre_processed_data.csv         # Cleaned pre-processed dataset
-├── powerbi report.pbix            # Interactive Power BI dashboard report
-├── requirements.txt               # Environment dependencies
-└── README.md                      # Human-written technical project documentation
+├── Bangalore House Prices.ipynb              # Complete, executed, and documented Jupyter Notebook
+├── Bangalore_House_Prices_Valuation_Report.pdf # High-depth PDF technical valuation report
+├── PROJECT_REPORT.md                         # Detailed markdown project report
+├── bengaluru_house_prices.csv                # Raw dataset (13,320 properties × 9 columns)
+├── pre_processed_data.csv                    # Cleaned pre-processed dataset (0 nulls, 7,269 rows)
+├── final_cleaned_data.csv                    # Cleaned dataset for Power BI data refresh
+├── powerbi report.pbix                       # Interactive Power BI dashboard report
+├── requirements.txt                          # Environment dependencies
+└── README.md                                 # Human-written technical project documentation
 ```
 
 ---
