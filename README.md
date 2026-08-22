@@ -1,6 +1,6 @@
 # 🏙️ Bangalore House Prices — Advanced Machine Learning & Power BI Master Analytics Suite
 
-An end-to-end residential real estate intelligence system and machine learning valuation pipeline built on **7,269 verified listings across 241 Bangalore micro-markets**, featuring an executive **3-page Power BI Dashboard**, an **interactive HTML web suite**, and **regularized ML valuation models ($R^2 = 82.54\%$)**.
+An end-to-end residential real estate intelligence system and machine learning valuation pipeline built on **7,269 verified listings across 241 Bangalore micro-markets**, featuring an executive **4-page Power BI Dashboard**, comprehensive **master PDF report**, and **regularized ML valuation models ($R^2 = 82.54\%$)**.
 
 ---
 
@@ -8,8 +8,7 @@ An end-to-end residential real estate intelligence system and machine learning v
 
 | Asset | File / Path | Key Capabilities |
 |---|---|---|
-| **📊 Power BI Master Suite** | [`Bangalore_Advanced_Dashboard.pbix`](file:///c:/Users/abhir/Downloads/git%20ptojects/Python-BANGALORE-HOUSE-PRICES/Bangalore_Advanced_Dashboard.pbix) | 3 Pages, 26 Visuals, Dark Navy Executive Theme (`#0B1929`), Dual-Axis Combo Charts, Floor Area Curves, Micro-market Treemaps |
-| **🌐 Interactive Web Dashboard** | [`dashboard.html`](file:///c:/Users/abhir/Downloads/git%20ptojects/Python-BANGALORE-HOUSE-PRICES/dashboard.html) | Chart.js 4.4 Engine, 9 Interactive Charts, 5 Sparkline KPIs, Dynamic Locality Matrix, Real-time Filters |
+| **📊 Power BI Master Suite** | [`Bangalore_Advanced_Dashboard.pbix`](file:///c:/Users/abhir/Downloads/git%20ptojects/Python-BANGALORE-HOUSE-PRICES/Bangalore_Advanced_Dashboard.pbix) | 4 Pages, 33 Visuals, Dark Navy Executive Theme (`#0B1929`), Dual-Axis Combo Charts, Floor Area Curves, Micro-market Treemaps |
 | **📄 Master Analytics Report (PDF)** | [`Bangalore_Real_Estate_Master_Analytics_Report.pdf`](file:///c:/Users/abhir/Downloads/git%20ptojects/Python-BANGALORE-HOUSE-PRICES/Bangalore_Real_Estate_Master_Analytics_Report.pdf) | Publication-grade executive report with data tables, econometric pricing models, and corridor benchmarks |
 | **📋 Exhaustive Technical Report** | [`PROJECT_REPORT.md`](file:///c:/Users/abhir/Downloads/git%20ptojects/Python-BANGALORE-HOUSE-PRICES/PROJECT_REPORT.md) | Full mathematical formulations, OLS/Ridge/Lasso benchmarks, feature breakdowns, and distribution stats |
 | **📁 Cleaned Dataset** | [`final_cleaned_data.csv`](file:///c:/Users/abhir/Downloads/git%20ptojects/Python-BANGALORE-HOUSE-PRICES/final_cleaned_data.csv) | 7,269 records, 11 columns, 0 nulls, 4-stage domain-specific outlier filtering |
@@ -17,7 +16,7 @@ An end-to-end residential real estate intelligence system and machine learning v
 
 ---
 
-## 🏛️ Power BI Dashboard Architecture (3 Pages • 26 Visuals)
+## 🏛️ Power BI Dashboard Architecture (4 Pages • 33 Visuals)
 
 ```
 Bangalore_Advanced_Dashboard.pbix
@@ -39,12 +38,20 @@ Bangalore_Advanced_Dashboard.pbix
 │    ├── BHK Inventory & Demand Funnel (Funnel Chart)
 │    └── Area Type × BHK Valuation Multi-Dimensional Stacked Bar
 │
-└── 📑 Page 3: "3. Feature Valuations & Amenities" (6 Visuals)
-     ├── Balcony Count vs Average Price Impact (Column Chart)
-     ├── Unit Rate Premium Curve by Bathroom Count (₹/Sqft Area Curve)
-     ├── Bathroom Count Market Share Distribution (Donut Chart)
-     ├── Clustered Matrix: Avg Price by BHK & Balcony Tier (Clustered Column)
-     └── High-Density Localities: Supply Volume (Bars) vs Unit Rate (Line) (Dual-Axis Combo)
+├── 📑 Page 3: "3. Feature Valuations & Amenities" (6 Visuals)
+│    ├── Balcony Count vs Average Price Impact (Column Chart)
+│    ├── Unit Rate Premium Curve by Bathroom Count (₹/Sqft Area Curve)
+│    ├── Bathroom Count Market Share Distribution (Donut Chart)
+│    ├── Clustered Matrix: Avg Price by BHK & Balcony Tier (Clustered Column)
+│    └── High-Density Localities: Supply Volume (Bars) vs Unit Rate (Line) (Dual-Axis Combo)
+│
+└── 📑 Page 4: "4. Segmentation & Space Yield" (7 Visuals)
+     ├── Availability Velocity: Avg Price (Bars) & Listing Count (Line) (Dual-Axis Combo)
+     ├── Floor Area Footprint vs Rate Yield across BHK (Dual-Axis Combo)
+     ├── Total Residential SqFt Absorption by Area Type (Donut Chart)
+     ├── Top 15 Prime Affordable Entry Localities (Lowest Avg ₹/Sqft Bar Chart)
+     ├── Total Residential Floor Space by Micro-Market (Treemap Sqft)
+     └── Average Living Space Escalation by Bathroom Tier (Area Curve)
 ```
 
 ---
@@ -75,17 +82,6 @@ $$\hat{Y}_{\text{price}} = \beta_0 + \beta_1(\text{total\_sqft}) + \beta_2(\text
 
 ---
 
-## 🚀 How to Run
+## 🚀 How to Open the Power BI Dashboard
 
-### 1. View Power BI Dashboard
-Open [`Bangalore_Advanced_Dashboard.pbix`](file:///c:/Users/abhir/Downloads/git%20ptojects/Python-BANGALORE-HOUSE-PRICES/Bangalore_Advanced_Dashboard.pbix) in **Power BI Desktop** and navigate between all 3 tabs at the bottom.
-
-### 2. View Interactive Web Dashboard
-```bash
-python -m http.server 8080
-# Open http://localhost:8080/dashboard.html
-```
-
-### 3. Review Master Reports
-- Markdown: [`PROJECT_REPORT.md`](file:///c:/Users/abhir/Downloads/git%20ptojects/Python-BANGALORE-HOUSE-PRICES/PROJECT_REPORT.md)
-- PDF: [`Bangalore_Real_Estate_Master_Analytics_Report.pdf`](file:///c:/Users/abhir/Downloads/git%20ptojects/Python-BANGALORE-HOUSE-PRICES/Bangalore_Real_Estate_Master_Analytics_Report.pdf)
+Open [`Bangalore_Advanced_Dashboard.pbix`](file:///c:/Users/abhir/Downloads/git%20ptojects/Python-BANGALORE-HOUSE-PRICES/Bangalore_Advanced_Dashboard.pbix) in **Power BI Desktop** and navigate between all 4 tabs at the bottom.

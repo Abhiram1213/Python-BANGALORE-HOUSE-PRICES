@@ -74,21 +74,11 @@ Residential space in Bangalore is categorized into 4 structural types with disti
 | **Plot Area** (Villas / Land) | 601 | 8.27% | **₹155.72 L** | **1,907.2 sqft** | **₹8,171.35** | **+39.0% Rate / +73.5% Price** |
 | **Carpet Area** | 42 | 0.58% | ₹89.71 L | 1,345.5 sqft | ₹6,234.65 | +6.1% Rate |
 
-```
-+----------------------------------------------------------------------------------------------------+
-|                                    AREA TYPE PREMIUM HIERARCHY                                     |
-|                                                                                                    |
-|   Plot Area (₹8,171/sqft)  >>>>  Carpet Area (₹6,235/sqft)  >  Built-up (₹6,058)  >  Super (₹5,877)|
-+----------------------------------------------------------------------------------------------------+
-```
-
 ---
 
 ## Section 4: Amenity Economics (Bathroom & Balcony Premiums)
 
 ### 4.1 Bathroom Elasticity & Utility Ratio
-Bathrooms serve as a strong proxy for residential segment tiering:
-
 | Bath Count | Listings | Mean Price (₹L) | Mean Sqft | Mean Rate (₹/sqft) | Valuation Impact |
 |:---:|:---:|:---:|:---:|:---:|:---|
 | **1 Bath** | 576 | ₹39.58 L | 738.5 sqft | ₹5,301.09 | Compact Entry Housing |
@@ -110,8 +100,6 @@ Bathrooms serve as a strong proxy for residential segment tiering:
 ## Section 5: Geographic Micro-Market Intelligence (241 Localities)
 
 ### 5.1 Top 15 Supply Hubs (High-Liquidity Corridors)
-The major supply epicenters correlate with IT/ITES tech parks in East, South-East, and North Bangalore:
-
 | Rank | Locality | Listings ($N$) | Mean Price (₹L) | Mean Rate (₹/sqft) | Avg Living Area | Corridor Strategic Significance |
 |:---:|:---|:---:|:---:|:---:|:---:|:---|
 | **1** | **Whitefield** | **244** | ₹89.20 L | ₹5,520.12 | 1,524 sqft | Major EPIP / ITPL Tech Hub (Purple Line Metro) |
@@ -131,8 +119,6 @@ The major supply epicenters correlate with IT/ITES tech parks in East, South-Eas
 | **15** | **Yelahanka** | **86** | ₹82.70 L | ₹5,450.80 | 1,460 sqft | North Satellite Town & Air Force Base |
 
 ### 5.2 Top 15 Ultra-Luxury Enclaves (Ranked by Mean Price)
-*(Minimum 5 verified transactions)*
-
 | Rank | Locality | Sample | Mean Price (₹L) | Mean Rate (₹/sqft) | Avg Living Area | Category Tier |
 |:---:|:---|:---:|:---:|:---:|:---:|:---:|
 | **1** | **Cunningham Road** | 9 | **₹744.56 L** | **₹20,023.94** | **3,661.6 sqft** | Ultra-Luxury CBD |
@@ -155,8 +141,6 @@ The major supply epicenters correlate with IT/ITES tech parks in East, South-Eas
 
 ## Section 6: Machine Learning Predictive Valuation Benchmarking
 
-To benchmark valuation precision across the real estate corpus, 5 regression architectures were trained using **80/20 train-test splits**, evaluated against unseen out-of-sample properties:
-
 $$\text{Valuation Formulation: } \hat{Y}_{\text{price}} = \beta_0 + \beta_1(\text{total\_sqft}) + \beta_2(\text{bath}) + \beta_3(\text{balcony}) + \beta_4(\text{bhk}) + \sum_{j=1}^{K} \gamma_j (\text{Locality}_j) + \sum_{m=1}^{M} \delta_m (\text{AreaType}_m)$$
 
 | Algorithm / Regressor | R² Score (%) | RMSE (₹ Lakhs) | MAE (₹ Lakhs) | Overfitting Resistance |
@@ -167,27 +151,15 @@ $$\text{Valuation Formulation: } \hat{Y}_{\text{price}} = \beta_0 + \beta_1(\tex
 | **Random Forest Regressor** | 67.82% | ₹63.91 L | ₹16.78 L | Prone to leaf overfit on tail extremes |
 | **Gradient Boosting Regressor** | 66.48% | ₹65.23 L | ₹19.49 L | Moderate |
 
-```
-+----------------------------------------------------------------------------------------------------+
-|                                  MODEL BENCHMARK SUMMARY                                           |
-|                                                                                                    |
-|  Champion Model: Ridge Regression (L2 Regularized)                                                 |
-|  Explanation Power (R²): 82.54% of price variance explained across 241 micro-markets               |
-|  Mean Absolute Error: ± ₹18.56 Lakhs on out-of-sample property valuations                          |
-+----------------------------------------------------------------------------------------------------+
-```
-
 ---
 
-## Section 7: Power BI & Analytics Deliverables Index
-
-The following assets have been built and verified in the repository:
+## Section 7: Key Project Deliverables
 
 1. 📊 **Power BI Master Analytics Suite** ([`Bangalore_Advanced_Dashboard.pbix`](file:///c:/Users/abhir/Downloads/git%20ptojects/Python-BANGALORE-HOUSE-PRICES/Bangalore_Advanced_Dashboard.pbix))
-   - **Page 1**: `1. Market Overview & KPIs` (14 visuals — Dual-Axis Combo, Floor Area Curve, 100% Stacked Bar, Treemap, KPIs, Slicers)
-   - **Page 2**: `2. Micro-Market & Price Analytics` (6 visuals — Price Elasticity Scatter, Capital Treemap, Locality Intelligence Table, Funnel)
-   - **Page 3**: `3. Feature Valuations & Amenities` (6 visuals — Balcony impact, Bathroom rate curves, Dual-axis supply/rate)
-2. 🌐 **Interactive Web Analytics Hub** ([`dashboard.html`](file:///c:/Users/abhir/Downloads/git%20ptojects/Python-BANGALORE-HOUSE-PRICES/dashboard.html))
-   - 9 Live Chart.js Visuals + 5 KPI Sparklines + 3 Dynamic Filtering Selectors + Sortable Locality Matrix Table.
+   - **Page 1**: `1. Market Overview & KPIs` (14 visuals)
+   - **Page 2**: `2. Micro-Market & Price Analytics` (6 visuals)
+   - **Page 3**: `3. Feature Valuations & Amenities` (6 visuals)
+   - **Page 4**: `4. Segmentation & Space Yield` (7 visuals)
+2. 📄 **Master PDF Report** ([`Bangalore_Real_Estate_Master_Analytics_Report.pdf`](file:///c:/Users/abhir/Downloads/git%20ptojects/Python-BANGALORE-HOUSE-PRICES/Bangalore_Real_Estate_Master_Analytics_Report.pdf))
 3. 📁 **Cleaned Data Asset** ([`final_cleaned_data.csv`](file:///c:/Users/abhir/Downloads/git%20ptojects/Python-BANGALORE-HOUSE-PRICES/final_cleaned_data.csv))
-   - 7,269 records, 11 normalized feature columns, zero missing values, 4-stage domain-specific outlier filtering.
+4. 🤖 **Machine Learning Notebook** ([`Bangalore House Prices.ipynb`](file:///c:/Users/abhir/Downloads/git%20ptojects/Python-BANGALORE-HOUSE-PRICES/Bangalore%20House%20Prices.ipynb))
